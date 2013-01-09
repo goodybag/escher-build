@@ -92,7 +92,7 @@ var
 
         if (!options.silent) sys.puts(stdout);
 
-        return callback();
+        appendEscherPaths(options.outputDir + "/" + options.appPath, escherPackages, callback);
       });
     });
   }
@@ -120,6 +120,21 @@ var
 
       return callback(null, data);
     });
+  }
+
+, appendEscherPaths = function(path, packages, callback){
+    var escherPaths = {};
+
+    for (var key in packages){
+      escherPaths[packages[key].path] = packages[key].name;
+    }
+
+    escherPaths = ';require.config({paths:' + JSON.stringify(escherPaths) + '})';
+
+    console.log("appending escher paths!");
+    console.log(escherPaths);
+
+    fs.appendFile(path, escherPaths, 'utf-8', callback);
   }
 
   // Get each packages package.js file
