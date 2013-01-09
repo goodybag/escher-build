@@ -1,6 +1,6 @@
 {
   "name": "escher",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "Build tool for escher",
   "main": "index.js",
   "dependencies": {
@@ -21,6 +21,9 @@
     "build",
     "backbone"
   ],
+  "bin": {
+    "escher": "./bin/escher.js"
+  },
   "author": "John Fawcett",
   "license": "BSD",
   "readmeFilename": "README.md",
