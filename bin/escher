@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var
-  escher = require('/goodybag/escher-builder')
+  escher = require('escher')
 
 , getArg = function(option, fallback){
     var pos = process.argv.indexOf(option);
@@ -16,6 +16,9 @@ var
   , silent:     (process.argv.indexOf('-s') > -1) || process.argv.indexOf('--silent') > -1
   }
 ;
+
+if (options.appPath.indexOf('.js') > -1)
+  options.appPath = options.appPath.replace('.js', '');
 
 escher(options, function(error){
   if (error) throw error;

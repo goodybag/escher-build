@@ -11,7 +11,7 @@ var
 , options
 
 , getEscherConfig = function(appPath, callback){
-    fs.readFile(appPath, 'utf-8', function(error, data){
+    fs.readFile(appPath + '.js', 'utf-8', function(error, data){
       if (error) return callback(error);
 
       // Parse code into a predictable format
@@ -75,7 +75,7 @@ var
       }
 
       // Add the output file
-      command += " \\ \n -o " + options.outputDir + "/" + options.appPath;
+      command += " \\ \n -o " + options.outputDir + "/" + options.appPath + '.js';
 
       if (!options.optimize) command += " \\ \n --no-minify";
 
@@ -92,7 +92,7 @@ var
 
         if (!options.silent) sys.puts(stdout);
 
-        appendEscherPaths(options.outputDir + "/" + options.appPath, escherPackages, callback);
+        appendEscherPaths(options.outputDir + "/" + options.appPath + '.js', escherPackages, callback);
       });
     });
   }
