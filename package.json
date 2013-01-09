@@ -1,0 +1,28 @@
+{
+  "name": "escher",
+  "version": "0.1.1",
+  "description": "Build tool for escher",
+  "main": "index.js",
+  "dependencies": {
+    "uglify-js": "~1.3.4",
+    "async": "~0.1.22",
+    "wrench": "~1.4.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/goodybag/escher-build.git"
+  },
+  "keywords": [
+    "escher",
+    "build",
+    "backbone"
+  ],
+  "author": "John Fawcett",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "6729dc296c6bcbe61346fdc71d07ac078aaf9efc"
+}
