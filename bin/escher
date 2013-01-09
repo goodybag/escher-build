@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+var escher = require('/goodybag/escher-builder');
+
+escher(process.argv[2], function(error){
+  if (error) throw error;
+
+  process.exit(0);
+});
