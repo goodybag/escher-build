@@ -131,9 +131,6 @@ var
 
     escherPaths = ';require.config({paths:' + JSON.stringify(escherPaths) + '})';
 
-    console.log("appending escher paths!");
-    console.log(escherPaths);
-
     fs.appendFile(path, escherPaths, 'utf-8', callback);
   }
 
