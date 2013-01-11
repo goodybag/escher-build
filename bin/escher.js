@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var
-  escher = require('../')
+  escher = require('/goodybag/escher-builder')
 
 , getArg = function(option, fallback){
     var pos = process.argv.indexOf(option);

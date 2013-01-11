@@ -10,7 +10,9 @@ var
   // Global options - I promise to fulfill!
 , options
 
-, getEscherConfig = function(appPath, callback){
+, getEscherConfig = function(callback){
+    appPath = options.appPath;
+
     fs.readFile(appPath + '.js', 'utf-8', function(error, data){
       if (error) return callback(error);
 
@@ -214,10 +216,14 @@ var
   }
 
 , cleanBuildDirectory = function(callback){
-    wrench.rmdirRecursive(options.outputDir, function(error){
-      if (error) return callback(error);
+    fs.exists(options.outputDir, function(exists){
+      if (!exists) return callback();
 
-      fs.mkdir(options.outputDir, callback);
+      wrench.rmdirRecursive(options.outputDir, function(error){
+        if (error) return callback(error);
+
+        fs.mkdir(options.outputDir, callback);
+      });
     });
   }
 ;
@@ -228,7 +234,7 @@ module.exports = function(_options, callback){
   cleanBuildDirectory(function(error){
     if (error) return callback(error);
 
-    getEscherConfig(options.appPath, function(error, escherConfig){
+    getEscherConfig(function(error, escherConfig){
       if (error) return callback(error);
 
       compileMain(escherConfig, getJamConfig(), function(error){
