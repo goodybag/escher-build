@@ -71,6 +71,11 @@ var
         command += " \\ \n -i " + escherPackages[i].router;
       }
 
+      // Include bundle
+      for (var i = options.bundle.length - 1; i >= 0; i--){
+        command += " \\ \n -i " + options.bundle[i];
+      }
+
       // compile command for jam packages
       for (var i = jamConfig.packages.length - 1; i >= 0; i--){
         command += " \\ \n -i " + jamConfig.packages[i].name
@@ -165,6 +170,11 @@ var
     // Include root app
     command += " \\ \n -i " + package.path;
 
+    // Exclude bundle
+    for (var i = options.bundle.length - 1; i >= 0; i--){
+      command += " \\ \n -e " + options.bundle[i];
+    }
+
     // Exclude all jam dependencies
     for (var i = jamConfig.packages.length - 1; i >= 0; i--){
       command += " \\ \n -E " + jamConfig.packages[i].name
@@ -231,6 +241,8 @@ var
 module.exports = function(_options, callback){
   options = _options;
 
+  if (!options.bundle) options.bundle = [];
+
   cleanBuildDirectory(function(error){
     if (error) return callback(error);
 
@@ -244,7 +256,7 @@ module.exports = function(_options, callback){
           if (error) return callback(error);
 
           return callback();
-        })
+        });
       });
     });
   });

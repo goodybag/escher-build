@@ -14,6 +14,7 @@ var
   , outputDir:  getArg('--output-dir', './build')
   , optimize:   !(process.argv.indexOf('--no-minify') > -1)
   , silent:     (process.argv.indexOf('-s') > -1) || process.argv.indexOf('--silent') > -1
+  , bundle:     getArg('--bundle', '').split(',')
   }
 ;
 
