@@ -50,7 +50,8 @@ The options for escher are pretty few:
 ```
 escher [path [options]]
 
--s --silent             No output
---no-minify             No minification, still concatenates
---output-dir {dir}      Your build directory
+-s --silent                     No output
+--no-minify                     No minification, still concatenates
+--output-dir {dir}              Your build directory
+--bundle     {file1,file2,...}  Top-level bundle
 ```
