@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var
-  escher = require('/goodybag/escher-builder')
+  escher = require('../')
 
 , getArg = function(option, fallback){
     var pos = process.argv.indexOf(option);
@@ -14,7 +14,7 @@ var
   , outputDir:  getArg('--output-dir', './build')
   , optimize:   !(process.argv.indexOf('--no-minify') > -1)
   , silent:     (process.argv.indexOf('-s') > -1) || process.argv.indexOf('--silent') > -1
-  , bundle:     getArg('--bundle', '').split(',')
+  , bundle:     getArg('--bundle', false) || []
   }
 ;
 
