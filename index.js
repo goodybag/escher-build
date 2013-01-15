@@ -227,7 +227,7 @@ var
 
 , cleanBuildDirectory = function(callback){
     fs.exists(options.outputDir, function(exists){
-      if (!exists) return callback();
+      if (!exists) return fs.mkdir(options.outputDir, callback);
 
       wrench.rmdirRecursive(options.outputDir, function(error){
         if (error) return callback(error);
