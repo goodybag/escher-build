@@ -1,6 +1,6 @@
 {
   "name": "escher",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Build tool for escher",
   "main": "index.js",
   "dependencies": {
