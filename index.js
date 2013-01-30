@@ -191,7 +191,10 @@ var
 
     if (!options.optimize) command += " \\ \n --no-minify";
 
-    if (!options.silent) console.log(command);
+    if (!options.silent){
+      command += " -v";
+      console.log(command);
+    }
 
     // Do some clean up
     command = command.replace(/\\/g, "");
